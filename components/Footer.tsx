@@ -12,7 +12,7 @@ export function Footer() {
       aria-label="Contact and company information"
       className="bg-brand-dark text-white"
     >
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 md:gap-12 md:py-16 lg:px-8">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 md:gap-12 md:py-20 lg:px-8">
         <address className="not-italic">
           <h2 className="mb-4 font-heading text-2xl font-extrabold text-white">
             {BUSINESS.dba}

@@ -3,16 +3,33 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Star, BadgeCheck, Home, Clock } from "lucide-react";
 import { BUSINESS } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 const BADGES = [
   {
     key: "rating",
     label: `${BUSINESS.rating}★ · ${BUSINESS.reviewCount} Google Reviews`,
     Icon: Star,
+    iconClass: "bg-accent-50 text-accent-600",
   },
-  { key: "licensed", label: "Licensed & Insured", Icon: BadgeCheck },
-  { key: "family", label: "Family Owned & Operated", Icon: Home },
-  { key: "hours", label: `Hours: ${BUSINESS.hours}`, Icon: Clock },
+  {
+    key: "licensed",
+    label: "Licensed & Insured",
+    Icon: BadgeCheck,
+    iconClass: "bg-water-50 text-water-600",
+  },
+  {
+    key: "family",
+    label: "Family Owned & Operated",
+    Icon: Home,
+    iconClass: "bg-brand-50 text-brand-700",
+  },
+  {
+    key: "hours",
+    label: `Hours: ${BUSINESS.hours}`,
+    Icon: Clock,
+    iconClass: "bg-neutral-100 text-neutral-600",
+  },
 ];
 
 export function TrustBar() {
@@ -30,7 +47,7 @@ export function TrustBar() {
       className="border-y border-neutral-200 bg-white"
     >
       <motion.ul
-        className="mx-auto grid max-w-6xl grid-cols-2 gap-x-4 gap-y-3 px-4 py-5 sm:px-6 md:flex md:flex-row md:flex-wrap md:items-center md:justify-center md:gap-x-12 md:gap-y-4 md:py-6 lg:px-8"
+        className="mx-auto grid max-w-6xl grid-cols-2 gap-x-4 gap-y-5 px-4 py-7 sm:px-6 md:flex md:flex-row md:flex-wrap md:items-center md:justify-center md:gap-x-12 md:gap-y-5 md:py-9 lg:px-8"
         initial={prefersReducedMotion ? false : "hidden"}
         animate="show"
         variants={{
@@ -40,14 +57,21 @@ export function TrustBar() {
           },
         }}
       >
-        {BADGES.map(({ key, label, Icon }) => (
+        {BADGES.map(({ key, label, Icon, iconClass }) => (
           <motion.li
             key={key}
             variants={itemVariants}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="flex min-h-[44px] items-center justify-center gap-2 px-2 text-center font-heading text-sm font-semibold text-neutral-700 md:justify-start md:text-left"
+            className="flex min-h-[44px] items-center justify-center gap-3 px-2 text-center font-heading text-sm font-semibold text-neutral-700 md:justify-start md:text-left"
           >
-            <Icon aria-hidden className="h-5 w-5 text-accent" />
+            <span
+              className={cn(
+                "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full ring-1 ring-inset ring-black/5",
+                iconClass,
+              )}
+            >
+              <Icon aria-hidden className="h-5 w-5" />
+            </span>
             {label}
           </motion.li>
         ))}

@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  allowedHosts: [".monkeycode-ai.live"],
+};
 
 export default nextConfig;

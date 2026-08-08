@@ -32,35 +32,37 @@ export function ServiceArea() {
   );
 
   return (
-    <section ref={sectionRef} aria-labelledby="service-area-heading" className="py-20">
+    <section ref={sectionRef} aria-labelledby="service-area-heading" className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <h2
         id="service-area-heading"
-        className="text-center font-heading text-2xl font-extrabold tracking-tight text-brand-dark sm:text-3xl md:text-4xl"
+        className="mx-auto max-w-2xl px-4 text-center font-heading text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl md:text-5xl"
       >
         Proudly Serving the Rio Grande Valley
       </h2>
-      <p className="mx-auto mt-3 max-w-xl px-4 text-center font-body text-base text-neutral-600 md:mt-4 md:text-lg">
+      <p className="mx-auto mt-4 max-w-xl px-4 text-center font-body text-base text-neutral-600 md:mt-5 md:text-lg">
         Family-owned plumbing serving Los Fresnos and the surrounding coastal area.
       </p>
-      <ul className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:mt-10">
+      <ul className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:mt-12">
         {SERVICE_AREA.map((city) => (
           <li
             key={city}
-            className="flex min-h-[44px] items-center gap-3 rounded-card border border-neutral-200 bg-white px-4 py-3.5 font-heading font-semibold text-brand-dark shadow-card sm:px-5 sm:py-4"
+            className="flex min-h-[44px] items-center gap-3 rounded-card border border-brand-100 bg-white px-4 py-3.5 font-heading font-semibold text-brand-900 shadow-lg sm:px-5 sm:py-4"
           >
-            <MapPin aria-hidden className="h-5 w-5 shrink-0 text-accent" />
+            <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-50 text-accent-dark">
+              <MapPin aria-hidden className="h-5 w-5" />
+            </span>
             {city}
           </li>
         ))}
       </ul>
-      <div className="mt-10 px-4 text-center md:mt-12">
+      <div className="mt-12 px-4 text-center md:mt-14">
         <a
           href={BUSINESS.mapsHref}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Open Gator Plumbing location in Google Maps"
-          className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-lg bg-brand px-7 py-3.5 font-heading font-bold text-white transition-colors hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:w-auto"
+          className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-brand px-7 py-3.5 font-heading font-bold text-white shadow-lg transition-all duration-200 ease-out hover:scale-[1.02] hover:bg-brand-dark active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:w-auto"
         >
           <Navigation aria-hidden className="h-5 w-5" />
           View Us on Google Maps
@@ -72,7 +74,7 @@ export function ServiceArea() {
           width={6960}
           height={4640}
           sizes="(min-width: 1024px) 768px, 100vw"
-          className="mt-10 mx-auto hidden max-w-3xl rounded-card border border-neutral-200 shadow-card lg:block"
+          className="mt-12 mx-auto hidden max-w-3xl rounded-card border border-brand-100 shadow-lg lg:block"
         />
       </div>
     </section>
