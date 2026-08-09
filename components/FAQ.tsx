@@ -61,11 +61,11 @@ export function FAQ() {
   );
 
   return (
-    <section ref={sectionRef} aria-labelledby="faq-heading" className="py-20">
+    <section ref={sectionRef} aria-labelledby="faq-heading" className="py-20 md:py-28">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <h2
           id="faq-heading"
-          className="mb-8 px-4 text-center font-heading text-2xl font-extrabold tracking-tight text-brand-dark sm:text-3xl md:mb-10 md:text-4xl"
+          className="mb-10 px-4 text-center font-heading text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl md:mb-14 md:text-5xl"
         >
           Frequently Asked Questions
         </h2>
@@ -77,8 +77,10 @@ export function FAQ() {
             <div
               key={buttonId}
               className={cn(
-                "mb-3 overflow-hidden rounded-card border bg-white transition-colors",
-                open ? "border-brand/30" : "border-neutral-200",
+                "mb-3 overflow-hidden rounded-card border bg-white transition-all duration-300 ease-out",
+                open
+                  ? "border-brand-200 shadow-card"
+                  : "border-neutral-200 hover:border-brand-200/70",
               )}
             >
               <h3>
@@ -88,16 +90,28 @@ export function FAQ() {
                   aria-expanded={open}
                   aria-controls={panelId}
                   onClick={() => setOpenIndex(open ? null : i)}
-                  className="flex min-h-[48px] w-full items-center justify-between gap-4 px-4 py-3.5 text-left font-heading text-base font-bold text-brand-dark sm:px-5 sm:py-4"
+                  className={cn(
+                    "flex min-h-[48px] w-full items-center justify-between gap-4 px-4 py-3.5 text-left font-heading text-base font-bold text-brand-900 transition-colors duration-200 sm:px-6 sm:py-4 md:text-lg",
+                    open ? "text-brand-900" : "hover:text-brand-600",
+                  )}
                 >
                   {item.question}
-                  <ChevronDown
-                    aria-hidden
+                  <span
                     className={cn(
-                      "h-5 w-5 shrink-0 text-accent transition-transform duration-200 ease-out",
-                      open && "rotate-180",
+                      "inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300 ease-out",
+                      open
+                        ? "bg-accent text-white"
+                        : "bg-brand-50 text-accent-dark",
                     )}
-                  />
+                  >
+                    <ChevronDown
+                      aria-hidden
+                      className={cn(
+                        "h-5 w-5 transition-transform duration-300 ease-out",
+                        open && "rotate-180",
+                      )}
+                    />
+                  </span>
                 </button>
               </h3>
               <motion.div
@@ -106,10 +120,10 @@ export function FAQ() {
                 aria-labelledby={buttonId}
                 initial={false}
                 animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 className="overflow-hidden"
               >
-                <p className="px-4 pb-4 font-body text-sm text-neutral-600 sm:px-5 md:text-base">
+                <p className="px-4 pb-5 font-body text-sm text-neutral-600 sm:px-6 md:text-base">
                   {item.answer}
                 </p>
               </motion.div>

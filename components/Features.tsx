@@ -52,18 +52,22 @@ export function Features() {
   return (
     <section
       aria-labelledby="features-heading"
-      className="bg-neutral-50 py-14 md:py-20"
+      className="bg-neutral-50 py-20 md:py-28"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <h2
           id="features-heading"
-          className="mb-8 text-center font-heading text-2xl font-extrabold tracking-tight text-brand-dark sm:text-3xl md:mb-12 md:text-4xl"
+          className="mx-auto mb-10 max-w-2xl text-center font-heading text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl md:mb-14 md:text-5xl"
         >
           Plumbing Services Done Right
         </h2>
+        <p className="mx-auto -mt-6 mb-10 max-w-xl text-center font-body text-neutral-600 md:-mt-10 md:mb-14 md:text-lg">
+          From emergencies to remodels, the right help for every job in the
+          Valley.
+        </p>
         <ul
           ref={gridRef}
-          className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3"
         >
           {SERVICES.map((service, i) => {
             const Icon = SERVICE_ICONS[i];

@@ -31,20 +31,20 @@ export function Reviews() {
   );
 
   return (
-    <section ref={sectionRef} aria-labelledby="reviews-heading" className="bg-neutral-50 py-14 md:py-20">
+    <section ref={sectionRef} aria-labelledby="reviews-heading" className="bg-neutral-50 py-20 md:py-28">
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <div className="mb-4 inline-flex items-center gap-1 text-accent">
+        <div className="mb-5 inline-flex items-center gap-1 text-accent">
           {[1, 2, 3, 4, 5].map((i) => (
             <Star key={i} aria-hidden className="h-6 w-6 fill-accent" />
           ))}
         </div>
         <h2
           id="reviews-heading"
-          className="font-heading text-2xl font-extrabold tracking-tight text-brand-dark sm:text-3xl md:text-4xl"
+          className="font-heading text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl md:text-5xl"
         >
           Trusted by Neighbors Across the Valley
         </h2>
-        <p className="mt-3 font-body text-base text-neutral-600 md:mt-4 md:text-lg">
+        <p className="mt-4 font-body text-base text-neutral-600 md:mt-5 md:text-lg">
           Rated {BUSINESS.rating}★ from {BUSINESS.reviewCount} Google reviews.
         </p>
         <a
@@ -52,7 +52,7 @@ export function Reviews() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Read Gator Plumbing reviews on Google Maps"
-          className="mt-6 inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-lg bg-accent-dark px-7 py-3.5 font-heading font-bold text-white transition-colors hover:bg-accent-darker focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 md:mt-8 md:w-auto"
+          className="mt-8 inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-accent px-7 py-3.5 font-heading font-bold text-white shadow-glow-accent transition-all duration-200 ease-out hover:scale-[1.02] hover:bg-accent-dark active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 md:mt-10 md:w-auto"
         >
           <MessageSquareQuote aria-hidden className="h-5 w-5" />
           Read Our Google Reviews
