@@ -1,0 +1,43 @@
+REFERENCE ANALYSIS — Bloom AI Hero
+Source: https://motionsites.ai/?prompt=bloom-ai-hero (card: "Bloom AI", Hero Section, 288 likes)
+Evidence: live gallery page + preview GIF (assets/hero-bloom-ai-preview-g6RcYLTl.gif, 800x564, 70 frames) + supplied prompt spec (authoritative).
+Scope: Hero only (single full-screen hero landing page).
+
+1. LAYOUT STRUCTURE
+- Full-screen hero, flex row, min-h-screen, two panels: left w-[52%], right w-[48%] (right hidden on mobile, lg:flex).
+- Layered z-index: looping video bg at z-0, all content at z-10.
+- Left panel: liquid-glass-strong overlay (absolute inset-4 lg:inset-6, rounded-3xl) holding:
+  * Nav: logo (32x32) + "bloom" text (semibold, 2xl, tracking-tighter) left; "Menu" pill button right.
+  * Hero center (flex-1, centered): logo 80x80, h1 (text-6xl lg:text-7xl, tracking-[-0.05em]), CTA "Explore Now" pill with circular icon, three feature pills (Artistic Gallery / AI Generation / 3D Structures).
+  * Bottom quote block: "VISIONARY DESIGN" label, italic quote "We imagined a realm with no ending.", author "MARCUS AURELIO" with flanking horizontal lines.
+- Right panel (desktop): top bar with social icon pills (Twitter/LinkedIn/Instagram + ArrowRight) and Sparkles account button; "Enter our ecosystem" community card; bottom feature section (mt-auto, rounded-[2.5rem] container) with two cards (Processing / Growth Archive) and a bottom card (flower thumbnail, "Advanced Plant Sculpting", + button).
+- All borders handled by glass ::before gradient borders, no border classes.
+
+2. COLOR PALETTE
+- Strict grayscale only. CSS vars are 0 0% X% HSL values.
+- Background: near-black (frame analysis dominant ~#000-#001020 buckets, 38% of pixels 0-31 luminance).
+- Text hierarchy: white / white/80 / white/60 / white/50. No colored accents.
+- Glass surfaces: rgba(255,255,255,0.01) base with luminosity blend; glass-strong blur(50px).
+- Border gradients: white 0.45->0.15->transparent (light), 0.5/0.2 (strong).
+- Border radius token: --radius: 1rem; large cards up to rounded-[2.5rem], pills rounded-full.
+
+3. TYPOGRAPHY
+- Display/Body: Poppins (Google Fonts), headings font-weight 500.
+- Serif accent: Source Serif 4 — italic <em>/<i> only inside headings and quote (text-white/80).
+
+4. ANIMATION STYLE
+- Looping, muted, autoplaying video background (object-cover, full viewport) — continuous subtle motion (~6-8% pixels shift between sampled frames; dark drifting floral imagery).
+- Liquid glass morphism over video; backdrop blur creates frosted, translucent surfaces.
+- Interactions: all interactive elements hover:scale-105, active:scale-95, transition-transform; social links text-white -> hover:text-white/80 transition-colors.
+- Icon chips: w-8 h-8 rounded-full bg-white/10.
+
+5. ASSETS / TECH
+- Video: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260315_073750_51473149-4350-4920-ae24-c8214286f323.mp4
+- Icons: lucide-react (Sparkles, Download, Wand2, BookOpen, ArrowRight, Twitter, Linkedin, Instagram, Menu).
+- Images: /logo.png, @/assets/hero-flowers.png (96x64 thumb).
+- Stack (from prompt): React + Tailwind, @layer components for glass, Google Fonts.
+
+6. RISKS / NOTES
+- Video is external CloudFront CDN asset (Kept External/Embed).
+- Poppins + Source Serif 4 are OFL, localizable.
+- Right panel is desktop-only; mobile collapses to single glass panel.
